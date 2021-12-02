@@ -11,7 +11,7 @@ const App = () => {
   //set state of data
   const [procedures, setProcedures] = useState<Array<Procedure>>([])//need to be array of porocedures
   const getProcedures = () => {
-    axios.get(`http://localhost:3001/procedures`)
+    axios.get(`https://still-plateau-52039.herokuapp.com/procedures`)
     .then((response) => setProcedures(response.data.rows),
     (err) => console.error(err.message));
   }
