@@ -12,6 +12,7 @@ import ProcedureForm from './components/ProcedureFrom';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Footer from './components/Footer';
 
 
 const App = () => {
@@ -38,6 +39,7 @@ const App = () => {
               <input 
                 type="input" 
                 className="searh-input"
+                placeholder="search procedure"
                 />
               <input type="submit" value="search" className="submit-search" />
             </form>
@@ -48,23 +50,17 @@ const App = () => {
           </div>
         </div>
         <Routes>
-          <Route path="/" element={<Home/>}/>
+          <Route path="/" element={
+            <Home 
+              procedures={procedures}
+            />
+          }/>
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/login" element={<Login/>}/>
           {/* <Route path="*" element={<ErrorPage />} />  */}
-
         </Routes>
       </Router>
-      
-      {/* {
-        procedures ? (
-          procedures.map((procedure) => (
-          <div>
-            {procedure.name}
-          </div>
-          ))
-        ): <></>
-      } */}
+      <Footer />
     </div>
   )
 

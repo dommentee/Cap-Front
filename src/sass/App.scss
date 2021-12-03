@@ -2,6 +2,7 @@
   width:100%; 
 }
 .header {
+  padding: 20px 0;
   a {
     text-decoration: none;
     color: #387094;
@@ -32,7 +33,7 @@
       justify-content: space-between;
     }
     .searh-input {
-      padding: 5.5px;
+      padding: 6px;
       width: 80%;
     }
     .submit-search {
