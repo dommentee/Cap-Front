@@ -33,7 +33,7 @@ const Home = (props: any ) => {
 			    </div>
 			</div>
             <div className="mapWrap">
-                
+                map
             </div>
 		</div>
         

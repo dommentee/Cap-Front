@@ -1,9 +1,11 @@
 import React from "react";
 
-
+import '../sass/footer.scss'
 const Footer = () => {
     return (
-        <h3>footer</h3>
+        <div className="footer">
+            <h3>footer</h3>
+        </div>
     )
 }
 
