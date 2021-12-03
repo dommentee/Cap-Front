@@ -13,21 +13,24 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Footer from './components/Footer';
 import ProcedureForm from './components/ProcedureForm';
+import Profile from './pages/Profile';
 
 
 const App = () => {
   //navaget is used to route for different button 
+  //state of user 
+  let [user, setUser] = useState(true)
   //set state of data
   const [procedures, setProcedures] = useState<Array<Procedure>>([])//need to be array of porocedures
   const getProcedures = () => {
-    axios.get(`https://still-plateau-52039.herokuapp.com/procedures`)
+    axios.get('https://still-plateau-52039.herokuapp.com/procedures')
     .then((response) => setProcedures(response.data.rows),
     (err) => console.error(err.message));
   }
   console.log(procedures);
   //create fuction
   const handleCreate = (newProcedure: Procedure) => {
-    axios.post(`https://still-plateau-52039.herokuapp.com/procedures`,newProcedure)
+    axios.post('https://still-plateau-52039.herokuapp.com/procedures',newProcedure)
     .then((response) => setProcedures(response.data.rows),
       (err) => console.error(err.message));
   } 
@@ -52,19 +55,26 @@ const App = () => {
             </form>
           </div>
           <div className="user-wrap">
-            <div className="session-button" id="sign-up"><Link to="/signup">sign up</Link></div>
-            <div className="session-button" id="login"><Link to="/login">login</Link></div>
+            {
+              user ? (
+                <div className="session-button" id="login"><Link to="/profile">Profile</Link></div>
+              ): (
+                <>
+                  <div className="session-button" id="sign-up"><Link to="/signup">sign up</Link></div>
+                  <div className="session-button" id="login"><Link to="/login">login</Link></div>
+                </>
+              )
+            }
           </div>
         </div>
         <Routes>
           <Route path="/" element={
-            <Home 
-              procedures={procedures}
-            />
+            <Home />
           }/>
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/contribute" element={<ProcedureForm  handleCreate={handleCreate}/>}/>
+          <Route path="/profile" element={<Profile procedures={procedures}/>}/>
           {/* <Route path="*" element={<ErrorPage />} />  */}
         </Routes>
       </Router>
