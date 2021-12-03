@@ -25,6 +25,12 @@ const App = () => {
     (err) => console.error(err.message));
   }
   console.log(procedures);
+  //create fuction
+  const handleCreate = (newProcedure: Procedure) => {
+    axios.post(`https://still-plateau-52039.herokuapp.com/procedures`,newProcedure)
+    .then((response) => setProcedures(response.data.rows),
+      (err) => console.error(err.message));
+  } 
   
   useEffect(() => {
     getProcedures()
@@ -58,7 +64,7 @@ const App = () => {
           }/>
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/login" element={<Login/>}/>
-          <Route path="/contribute" element={<ProcedureForm />}/>
+          <Route path="/contribute" element={<ProcedureForm  handleCreate={handleCreate}/>}/>
           {/* <Route path="*" element={<ErrorPage />} />  */}
         </Routes>
       </Router>
