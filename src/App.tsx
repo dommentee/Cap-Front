@@ -6,6 +6,11 @@ import './sass/App.scss';
 //import types
 import { Procedure} from './helpers/types';
 
+//components
+import ProcedureForm from './components/ProcedureFrom';
+import Header from './components/Header';
+
+
 
 const App = () => {
   //set state of data
@@ -22,16 +27,19 @@ const App = () => {
   },[])
   
   return (
-    <div>
-    {
-      procedures ? (
-        procedures.map((procedure) => (
-        <div>
-          {procedure.name}
-        </div>
-        ))
-      ): <></>
-    }
+    <div className="container">
+      <Header />
+      
+      {/* <ProcedureForm /> */}
+      {
+        procedures ? (
+          procedures.map((procedure) => (
+          <div>
+            {procedure.name}
+          </div>
+          ))
+        ): <></>
+      }
       <h3>Home</h3>
     </div>
   )
