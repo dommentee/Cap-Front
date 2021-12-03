@@ -1,4 +1,84 @@
 .container {
-  width:100%;
-  
+  width:100%; 
+}
+.header {
+  a {
+    text-decoration: none;
+    color: #387094;
+    font-weight: 500;
+    font-size: 1.1em;
+  }
+  .home-button {
+    padding: 4px 30px;
+    border-radius: 2px;
+    margin-right: 12px;
+    color: #387094;
+    border: 2.5px solid transparent;
+    &:hover {
+      border-bottom: 2.5px solid #387094; 
+      cursor: pointer;
+    }
+  }
+  width: 100%;
+  .search-form-warp {
+    width: 50%;
+    display: flex;
+    align-items: center;
+
+    .seach-form {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .searh-input {
+      padding: 5.5px;
+      width: 80%;
+    }
+    .submit-search {
+      padding: 4px 30px;
+      margin-left: 6px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  width: 100%;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: .9em;
+
+  .user-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .session-button {
+      padding: 4px 30px;
+      border: 2.5px solid transparent;
+      border-radius: 2px;
+      color: #387094;
+      // border: 2.5px solid #387094;
+    }
+    #sign-up {
+      border: 2.5px solid #387094; 
+      &:hover {
+        // background: rgba(14, 199, 231, 0.8);
+        background-color: #F5DA20;
+        transition: .5s;
+        cursor: pointer;
+      }
+    }
+
+    #login {
+      margin-left: 6px;
+      &:hover {
+        border-bottom: 2.5px solid #387094; 
+        cursor: pointer;
+      }
+    }
+  }
 }
