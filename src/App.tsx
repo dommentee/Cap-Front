@@ -10,6 +10,8 @@ import { Procedure} from './helpers/types';
 //components
 import ProcedureForm from './components/ProcedureFrom';
 import Home from './pages/Home';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 
 const App = () => {
@@ -41,18 +43,15 @@ const App = () => {
             </form>
           </div>
           <div className="user-wrap">
-            <div className="session-button" id="sign-up"><Link to="/">sign up</Link></div>
-            <div className="session-button" id="login"><Link to="/">login</Link></div>
+            <div className="session-button" id="sign-up"><Link to="/signup">sign up</Link></div>
+            <div className="session-button" id="login"><Link to="/login">login</Link></div>
           </div>
         </div>
-        {/* <nav>
-          <Link to="/">Home</Link>
-        </nav> */}
         <Routes>
           <Route path="/" element={<Home/>}/>
-          {/* <Route path="/login" element={<Home/>}/>
-          <Route path="/signup " element={<Home/>}/> */}
-          {/* <Route path="*" element={<ErrorPage />} /> */}
+          <Route path="/signup" element={<Signup/>}/>
+          <Route path="/login" element={<Login/>}/>
+          {/* <Route path="*" element={<ErrorPage />} />  */}
 
         </Routes>
       </Router>
