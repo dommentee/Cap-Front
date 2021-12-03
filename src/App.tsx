@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router, Routes, Route, Link  } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 
 import './sass/App.scss';
 
@@ -8,14 +8,15 @@ import './sass/App.scss';
 import { Procedure} from './helpers/types';
 
 //components
-import ProcedureForm from './components/ProcedureFrom';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Footer from './components/Footer';
+import ProcedureForm from './components/ProcedureForm';
 
 
 const App = () => {
+  //navaget is used to route for different button 
   //set state of data
   const [procedures, setProcedures] = useState<Array<Procedure>>([])//need to be array of porocedures
   const getProcedures = () => {
@@ -57,6 +58,7 @@ const App = () => {
           }/>
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/login" element={<Login/>}/>
+          <Route path="/contribute" element={<ProcedureForm />}/>
           {/* <Route path="*" element={<ErrorPage />} />  */}
         </Routes>
       </Router>

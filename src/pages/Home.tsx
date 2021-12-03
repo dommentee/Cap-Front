@@ -1,6 +1,6 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import '../sass/home.scss'
-
 
 //procedure name
 //Price
@@ -13,6 +13,8 @@ import '../sass/home.scss'
 //the point is to properly display the infomation/stats
 
 const Home = (props: any ) => {
+      //navaget is used to route for different button 
+  let navagate = useNavigate()
     return (
         <div className="home">
             <div className="landing-banner"> 
@@ -29,7 +31,7 @@ const Home = (props: any ) => {
           		    </span>
  
                     <div>contribue now</div>
-                    <div className="upload-button">Up load procedure</div>
+                    <div className="upload-button" onClick={() => navagate('/contribute')}>Up load procedure</div>
 			    </div>
 			</div>
             <div className="mapWrap">
