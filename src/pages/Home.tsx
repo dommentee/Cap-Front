@@ -38,20 +38,6 @@ const Home = (props: any ) => {
                 map
             </div>
 		</div>
-        
-        
-            // {/* {
-            //     props.procedures ? 
-            //     (
-            //         props.procedures.map((procedure: any) => (
-            //         <div className="procedure">
-            //             <div className="attribute">{procedure.name}</div>
-            //             <div className="attribute">{procedure.price}</div>
-            //         </div>
-            //     ))
-            //     ): <></>
-            // } */}
-
     )
 }
 

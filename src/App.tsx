@@ -14,6 +14,7 @@ import Signup from './pages/Signup';
 import Footer from './components/Footer';
 import ProcedureForm from './components/ProcedureForm';
 import Profile from './pages/Profile';
+import { isAsExpression } from 'typescript';
 
 
 const App = () => {
@@ -31,9 +32,23 @@ const App = () => {
   //create fuction
   const handleCreate = (newProcedure: Procedure) => {
     axios.post('https://still-plateau-52039.herokuapp.com/procedures',newProcedure)
-    .then((response) => setProcedures(response.data.rows),
-      (err) => console.error(err.message));
-  } 
+    .then((response) => getProcedures(),
+      (err) => console.error(err.message)
+      );
+  }
+  
+  //update
+  const handleUpdate = (editProcedure: any) => {
+    axios.put('https://still-plateau-52039.herokuapp.com/procedures/'+ editProcedure._id, editProcedure)
+    .then((response) => getProcedures())
+  }
+ 
+  //delete
+  const handleDelete = (e: any) => {
+    axios.delete('https://still-plateau-52039.herokuapp.com/procedures/' + e.target.value)
+    .then((response) => getProcedures(),
+    (err) => console.error(err.message));
+  }
   
   useEffect(() => {
     getProcedures()
@@ -74,7 +89,11 @@ const App = () => {
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/contribute" element={<ProcedureForm  handleCreate={handleCreate}/>}/>
-          <Route path="/profile" element={<Profile procedures={procedures}/>}/>
+          <Route path="/profile" element={<Profile
+           procedures={procedures}
+           handleDelete={handleDelete}
+           handleUpdate={handleUpdate}
+           />}/>
           {/* <Route path="*" element={<ErrorPage />} />  */}
         </Routes>
       </Router>

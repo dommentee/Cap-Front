@@ -1,9 +1,10 @@
 export interface Procedure {
+    procedure_id: any,
     name: string,
     price: number
-    hospitalName: string,
-    hospitalCity: string,
-    hospitalState: string, 
-    hospitalRating: number,
-    healTime: number
+    hospitalname: string,
+    hospitalcity: string,
+    hospitalstate: string, 
+    hospitalrating: number,
+    healtime: number
 }

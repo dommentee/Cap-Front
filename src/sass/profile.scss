@@ -22,12 +22,36 @@
         background: -webkit-linear-gradient(top, #F7F7F7, #FAFAFA);
         background: -moz-linear-gradient(top, #F7F7F7, #FAFAFA);
         background-color: #F7F7F7;
+        
 
         #user-data {
-            background-color: aqua;
-            position: relative;
-            overflow-y: scroll;
+            font-size: .8em;
             height: fit-content
+        }
+        h3 {
+            padding: 0 0 10px 0;
+            text-decoration: underline;
+        }
+        .procedure {
+            padding: 10px 2px;
+            border: 1px solid;
+            color: rgb(27, 27, 27);
+        }
+        .procedure-data{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            overflow: scroll;
+            margin: 5px 0;
+
+            .attribute {
+                width: 500px;
+                display: flex;
+                overflow: scroll;
+                align-items: center;
+                justify-content: space-between;
+                width: 60px;
+            }
         }
     }
     .name {
@@ -37,7 +61,6 @@
         margin: 20px 0;
         display: inline-block;
     }
-
     .upload-button {
         padding: 4px 30px;
         width: fit-content;
