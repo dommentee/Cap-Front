@@ -30,7 +30,15 @@ const Profile = (props: any) => {
                         (
                         props.procedures.map((procedure: Procedure ) => (
                         <div className="procedure" key={procedure.procedure_id}>
-                            <div className="procedure-data">
+                            <table>
+                                <td>Procedure: {procedure.name}</td>
+                                <td>Price: {procedure.price}</td>
+                                <td>Hospital: {procedure.hospitalname}</td>
+                                <td>State: {procedure.hospitalstate}</td>
+                                <td>Your rating: {procedure.hospitalrating}</td>
+                                
+                            </table>
+                            {/* <div className="procedure-data">
                                 <div className="attribute">Procedure: {procedure.name}</div>
                                 <div className="attribute">Price: {procedure.price}</div>
                                 <div className="attribute">Hospital: {procedure.hospitalname}</div>
@@ -38,7 +46,7 @@ const Profile = (props: any) => {
                                 <div className="attribute">State: {procedure.hospitalstate}</div>
                                 <div className="attribute">Your rating: {procedure.hospitalrating}</div>
                                 <div className="attribute">Your heal time: {procedure.healtime}</div>
-                            </div>
+                            </div> */}
                             <EditProcedureForm  
                                 procedure={procedure}
                                 handleUpdate={props.handleUpdate}

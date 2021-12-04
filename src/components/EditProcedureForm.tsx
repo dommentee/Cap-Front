@@ -93,7 +93,6 @@ const EditProcedureForm = (props: any) => {
                 <div className="input-wrap">
                 <input className="send" type="submit" value="SUBMIT"></input>
                 </div>
-    
             </form>
         </details>
         </div>
