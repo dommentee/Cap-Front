@@ -36,17 +36,9 @@ const Profile = (props: any) => {
                                 <td>Hospital: {procedure.hospitalname}</td>
                                 <td>State: {procedure.hospitalstate}</td>
                                 <td>Your rating: {procedure.hospitalrating}</td>
+                                <td>Time to heal: {procedure.healtime}</td>
                                 
                             </table>
-                            {/* <div className="procedure-data">
-                                <div className="attribute">Procedure: {procedure.name}</div>
-                                <div className="attribute">Price: {procedure.price}</div>
-                                <div className="attribute">Hospital: {procedure.hospitalname}</div>
-                                <div className="attribute">City: {procedure.hospitalcity}</div>
-                                <div className="attribute">State: {procedure.hospitalstate}</div>
-                                <div className="attribute">Your rating: {procedure.hospitalrating}</div>
-                                <div className="attribute">Your heal time: {procedure.healtime}</div>
-                            </div> */}
                             <EditProcedureForm  
                                 procedure={procedure}
                                 handleUpdate={props.handleUpdate}

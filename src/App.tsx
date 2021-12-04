@@ -14,7 +14,6 @@ import Signup from './pages/Signup';
 import Footer from './components/Footer';
 import ProcedureForm from './components/ProcedureForm';
 import Profile from './pages/Profile';
-import { isAsExpression } from 'typescript';
 
 
 const App = () => {
@@ -24,17 +23,24 @@ const App = () => {
   //set state of data
   const [procedures, setProcedures] = useState<Array<Procedure>>([])//need to be array of porocedures
   const getProcedures = () => {
-    axios.get('https://still-plateau-52039.herokuapp.com/procedures')
+    axios.get('http://localhost:3001/procedures')
     .then((response) => setProcedures(response.data.rows),
     (err) => console.error(err.message));
   }
   console.log(procedures);
   //create fuction
+
+  // const testPost = (newProcedure: Procedure) => {
+  //   axios.post('http://localhost:3001/procedures', newProcedure)
+  //   .then((response) => getProcedures())
+  //   // console.log(newProcedure);
+  // }
   const handleCreate = (newProcedure: Procedure) => {
-    axios.post('https://still-plateau-52039.herokuapp.com/procedures',newProcedure)
+    axios.post('http://localhost:3001/procedures', newProcedure)
     .then((response) => getProcedures(),
-      (err) => console.error(err.message)
-      );
+      (err) => console.error(err.message));
+      console.log(newProcedure);
+      
   }
   
   //update
@@ -45,7 +51,7 @@ const App = () => {
  
   //delete
   const handleDelete = (e: any) => {
-    axios.delete('https://still-plateau-52039.herokuapp.com/procedures/' + e.target.value)
+    axios.delete('http://localhost:3001/procedures/' + e.target.value)
     .then((response) => getProcedures(),
     (err) => console.error(err.message));
   }
