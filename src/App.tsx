@@ -40,9 +40,10 @@ const App = () => {
   
   //update
   const handleUpdate = (editProcedure: Procedure) => {
-    axios.put('http://localhost:3001/procedures/'+ editProcedure.procedure_id, editProcedure)
+    axios.put('http://localhost:3001/procedures/' + editProcedure.procedure_id, editProcedure)
     .then((response) => getProcedures(),
     (err) => console.error(err.message));
+    console.log(editProcedure);
         
   }
  

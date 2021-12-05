@@ -34,7 +34,7 @@ const Profile = (props: any) => {
                                 <td>Procedure: {procedure.name}</td>
                                 <td>Price: {procedure.price}</td>
                                 <td>Hospital: {procedure.hospital_name}</td>
-                                <td>City: {procedure.hospital_name}</td>
+                                <td>City: {procedure.hospital_city}</td>
                                 <td>State: {procedure.hospital_state}</td>
                                 <td>rating: {procedure.hospital_rating}</td>
                                 <td>healing: {procedure.heal_time}</td>

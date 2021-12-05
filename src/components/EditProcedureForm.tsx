@@ -11,7 +11,6 @@ const EditProcedureForm = (props: any) => {
     const handleSubmit = (e:React.FormEvent) => {
         e.preventDefault();
         props.handleUpdate(procedure);
-
     }
     return (
         <div>
@@ -24,7 +23,6 @@ const EditProcedureForm = (props: any) => {
                         type="text"
                         name="name"
                         onChange={handleChange}
-                        //@ts-ignore
                         value={procedure.name}
                         className="procedure-input"
                     />
@@ -35,17 +33,15 @@ const EditProcedureForm = (props: any) => {
                         type="number"
                         name="price"
                         onChange={handleChange}
-                        //@ts-ignore
                         value={procedure.price}
                         className="input"
                     />
                     <label htmlFor="Hospital name">hospital name</label>
                     <input 
                         type="text"
-                        name="hospitalName"
+                        name="hospital_name"
                         onChange={handleChange}
-                        //@ts-ignore
-                        value={procedure.hospitalname}
+                        value={procedure.hospital_name}
                         className="input"
                     />
                 </div>
@@ -53,19 +49,17 @@ const EditProcedureForm = (props: any) => {
                     <label htmlFor="Hospital city">Hospital City</label>
                     <input 
                         type="text"
-                        name="hospitalCity"
+                        name="hospital_city"
                         onChange={handleChange}
-                        //@ts-ignore
-                        value={procedure.hospitalcity}
+                        value={procedure.hospital_city}
                         className="input"
                     />
                     <label htmlFor="Hospital State">Hospital State</label>
                     <input 
                         type="text"
-                        name="hospitalState"
+                        name="hospital_state"
                         onChange={handleChange}
-                        //@ts-ignore
-                        value={procedure.hospitalstate}
+                        value={procedure.hospital_state}
                         className="input"
                     />
                 </div>
@@ -73,19 +67,17 @@ const EditProcedureForm = (props: any) => {
                     <label htmlFor="Hospital rating">Rate Hospital</label>
                     <input 
                         type="number"
-                        name="hospitalRating"
+                        name="hospital_rating"
                         onChange={handleChange}
-                        //@ts-ignore
-                        value={procedure.hospitalrating}
+                        value={procedure.hospital_rating}
                         className="input"
                     />
                     <label htmlFor="healing time">Days to heal</label>
                     <input 
                         type="number"
-                        name="healTime"
+                        name="heal_time"
                         onChange={handleChange}
-                        //@ts-ignore
-                        value={procedure.healtime}
+                        value={procedure.heal_time}
                         className="input"
                     />
                 </div>
