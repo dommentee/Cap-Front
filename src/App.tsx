@@ -23,7 +23,7 @@ const App = () => {
   //set state of data
   const [procedures, setProcedures] = useState<Array<Procedure>>([])//need to be array of porocedures
   const getProcedures = () => {
-    axios.get('http://localhost:3001/procedures')
+    axios.get('https://still-plateau-52039.herokuapp.com/procedures')
     .then((response) => setProcedures(response.data.rows),
     (err) => console.error(err.message));
   }
@@ -31,7 +31,7 @@ const App = () => {
   
   //create fuction
   const handleCreate = (newProcedure: Procedure) => {
-    axios.post('http://localhost:3001/procedures', newProcedure)
+    axios.post('https://still-plateau-52039.herokuapp.com/procedures', newProcedure)
     .then((response) => getProcedures(),
       (err) => console.error(err.message));
       console.log(newProcedure);
@@ -40,7 +40,7 @@ const App = () => {
   
   //update
   const handleUpdate = (editProcedure: Procedure) => {
-    axios.put('http://localhost:3001/procedures/' + editProcedure.procedure_id, editProcedure)
+    axios.put('https://still-plateau-52039.herokuapp.com/procedures/' + editProcedure.procedure_id, editProcedure)
     .then((response) => getProcedures(),
     (err) => console.error(err.message));
     console.log(editProcedure);
@@ -49,7 +49,7 @@ const App = () => {
  
   //delete
   const handleDelete = (e: any) => {
-    axios.delete('http://localhost:3001/procedures/' + e.target.value)
+    axios.delete('https://still-plateau-52039.herokuapp.com/procedures/' + e.target.value)
     .then((response) => getProcedures(),
     (err) => console.error(err.message));
   }
