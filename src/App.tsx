@@ -28,13 +28,8 @@ const App = () => {
     (err) => console.error(err.message));
   }
   console.log(procedures);
+  
   //create fuction
-
-  // const testPost = (newProcedure: Procedure) => {
-  //   axios.post('http://localhost:3001/procedures', newProcedure)
-  //   .then((response) => getProcedures())
-  //   // console.log(newProcedure);
-  // }
   const handleCreate = (newProcedure: Procedure) => {
     axios.post('http://localhost:3001/procedures', newProcedure)
     .then((response) => getProcedures(),
@@ -44,9 +39,11 @@ const App = () => {
   }
   
   //update
-  const handleUpdate = (editProcedure: any) => {
-    axios.put('https://still-plateau-52039.herokuapp.com/procedures/'+ editProcedure._id, editProcedure)
-    .then((response) => getProcedures())
+  const handleUpdate = (editProcedure: Procedure) => {
+    axios.put('http://localhost:3001/procedures/'+ editProcedure.procedure_id, editProcedure)
+    .then((response) => getProcedures(),
+    (err) => console.error(err.message));
+        
   }
  
   //delete

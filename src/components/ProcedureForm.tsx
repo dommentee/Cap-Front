@@ -33,7 +33,7 @@ const ProcedureForm = (props: any) => {
                     contribue now
                     <br/>
                     <br/>
-            </h2>
+                </h2>
                 <div className="input-wrap">
                     <label htmlFor="name" id="procede-lbl" >Procedure </label>
                     <input

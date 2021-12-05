@@ -42,7 +42,7 @@ const EditProcedureForm = (props: any) => {
                     <label htmlFor="Hospital name">hospital name</label>
                     <input 
                         type="text"
-                        name="hospitalname"
+                        name="hospitalName"
                         onChange={handleChange}
                         //@ts-ignore
                         value={procedure.hospitalname}
@@ -53,7 +53,7 @@ const EditProcedureForm = (props: any) => {
                     <label htmlFor="Hospital city">Hospital City</label>
                     <input 
                         type="text"
-                        name="hospitalcity"
+                        name="hospitalCity"
                         onChange={handleChange}
                         //@ts-ignore
                         value={procedure.hospitalcity}
@@ -62,7 +62,7 @@ const EditProcedureForm = (props: any) => {
                     <label htmlFor="Hospital State">Hospital State</label>
                     <input 
                         type="text"
-                        name="hospitalstate"
+                        name="hospitalState"
                         onChange={handleChange}
                         //@ts-ignore
                         value={procedure.hospitalstate}
@@ -73,7 +73,7 @@ const EditProcedureForm = (props: any) => {
                     <label htmlFor="Hospital rating">Rate Hospital</label>
                     <input 
                         type="number"
-                        name="hospitalrating"
+                        name="hospitalRating"
                         onChange={handleChange}
                         //@ts-ignore
                         value={procedure.hospitalrating}
@@ -82,7 +82,7 @@ const EditProcedureForm = (props: any) => {
                     <label htmlFor="healing time">Days to heal</label>
                     <input 
                         type="number"
-                        name="healtime"
+                        name="healTime"
                         onChange={handleChange}
                         //@ts-ignore
                         value={procedure.healtime}
