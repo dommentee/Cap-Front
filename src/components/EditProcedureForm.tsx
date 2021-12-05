@@ -19,7 +19,7 @@ const EditProcedureForm = (props: any) => {
             <summary>Edit Data</summary>
             <form onSubmit={handleSubmit}> 
                 <div className="input-wrap">
-                    <label htmlFor="name" id="procede-lbl" >Procedure </label>
+                    <label htmlFor="name" id="procede-lbl">Procedure </label>
                     <input
                         type="text"
                         name="name"

@@ -33,10 +33,11 @@ const Profile = (props: any) => {
                             <table>
                                 <td>Procedure: {procedure.name}</td>
                                 <td>Price: {procedure.price}</td>
-                                <td>Hospital: {procedure.hospitalname}</td>
-                                <td>State: {procedure.hospitalstate}</td>
-                                <td>Your rating: {procedure.hospitalrating}</td>
-                                <td>Time to heal: {procedure.healtime}</td>
+                                <td>Hospital: {procedure.hospital_name}</td>
+                                <td>City: {procedure.hospital_name}</td>
+                                <td>State: {procedure.hospital_state}</td>
+                                <td>rating: {procedure.hospital_rating}</td>
+                                <td>healing: {procedure.heal_time}</td>
                                 
                             </table>
                             <EditProcedureForm  

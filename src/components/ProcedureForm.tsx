@@ -9,7 +9,7 @@ import '../sass/procedure-form.scss'
 //healing time
 const ProcedureForm = (props: any) => {
     //set state of form
-    const defaultForm = {name: ' ', price: ' ', hospitalName: ' ', hospitalCity: ' ', hospitalState: ' ', hospitalRating: ' ', healTime: ' '}
+    const defaultForm = {name: '', price: '', hospital_name: '',hospital_city: '',hospital_state: '',hospital_rating: '',heal_time: ''}
     let [procedure, setProcedure] = useState(defaultForm)
 
     //handle change
@@ -56,9 +56,9 @@ const ProcedureForm = (props: any) => {
                     <label htmlFor="Hospital name">hospital name</label>
                     <input 
                         type="text"
-                        name="hospitalName"
+                        name="hospital_name"
                         onChange={handleChange}
-                        value={procedure.hospitalName}
+                        value={procedure.hospital_name}
                         className="input"
                     />
                 </div>
@@ -66,17 +66,17 @@ const ProcedureForm = (props: any) => {
                     <label htmlFor="Hospital city">Hospital City</label>
                     <input 
                         type="text"
-                        name="hospitalCity"
+                        name="hospital_city"
                         onChange={handleChange}
-                        value={procedure.hospitalCity}
+                        value={procedure.hospital_city}
                         className="input"
                     />
                     <label htmlFor="Hospital State">Hospital State</label>
                     <input 
                         type="text"
-                        name="hospitalState"
+                        name="hospital_state"
                         onChange={handleChange}
-                        value={procedure.hospitalState}
+                        value={procedure.hospital_state}
                         className="input"
                     />
                 </div>
@@ -84,17 +84,17 @@ const ProcedureForm = (props: any) => {
                     <label htmlFor="Hospital rating">Rate Hospital</label>
                     <input 
                         type="number"
-                        name="hospitalRating"
+                        name="hospital_rating"
                         onChange={handleChange}
-                        value={procedure.hospitalRating}
+                        value={procedure.hospital_rating}
                         className="input"
                     />
                     <label htmlFor="healing time">Days to heal</label>
                     <input 
                         type="number"
-                        name="healTime"
+                        name="heal_time"
                         onChange={handleChange}
-                        value={procedure.healTime}
+                        value={procedure.heal_time}
                         className="input"
                     />
                 </div>
