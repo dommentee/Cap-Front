@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import './sass/App.scss';
 
 //import types
-import { Procedure, SearchProcedureRespose} from './helpers/types';
+import { Procedure, SearchProcedureRespose, User} from './helpers/types';
 
 //components
 import Home from './pages/Home';
@@ -15,13 +15,12 @@ import Signup from './pages/Signup';
 import Footer from './components/Footer';
 import ProcedureForm from './components/ProcedureForm';
 import Profile from './pages/Profile';
-import { User } from './helpers/user';
 
 const procedureApi = 'https://still-plateau-52039.herokuapp.com/procedures/';
 const App = () => {
   ///USERS
   //state of user 
-  let [user, setUser] = useState(true)
+  let [user, setUser] = useState(false)
 
   ////API 
   //set state of data
@@ -67,7 +66,19 @@ const App = () => {
     .then((response) => getUser(),
     (err) => console.error(err.message));
   }
-  
+  const createToken = (user_name: User, password: User) => {
+    axios.get('http://localhost:3001/users', {withCredentials: true});
+      // {withCredentials: true}
+        axios.post('http://localhost:3001/users' + '/login', { user_name , password }, { withCredentials:true })
+  }
+  // const logout = (user: User) => {
+  //   axios
+  // }
+
+
+
+
+
   ///SEARCH 
   const makeRequest = async(filter: any) => {
     const response = await axios.get(procedureApi + 'search/' + filter)
@@ -140,7 +151,7 @@ const App = () => {
             <Home />
           }/>
           <Route path="/signup" element={<Signup createUser={createUser}/>}/>
-          <Route path="/login" element={<Login/>}/>
+          <Route path="/login" element={<Login createToken={createToken}/>}/>
           <Route path="/contribute" element={<ProcedureForm  handleCreate={handleCreate}/>}/>
           <Route path="/profile" element={<Profile
            procedures={procedures}
