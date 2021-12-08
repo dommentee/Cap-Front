@@ -2,10 +2,11 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 
+
 import './sass/App.scss';
 
 //import types
-import { Procedure} from './helpers/types';
+import { Procedure, SearchProcedureRespose} from './helpers/types';
 
 //components
 import Home from './pages/Home';
@@ -25,9 +26,9 @@ const App = () => {
   ////API 
   //set state of data
   const [searchInput, setSearchInput] = useState(null as any)
-  const [searchResults, setSearchResults] = useState<Array<Procedure>>([])
+  const [searchResults, setSearchResults] = useState <SearchProcedureRespose>()
   const  [connectApi, setConnectApi] = useState<Array<Procedure>>([])
-  const [procedures, setProcedures] = useState<Array<Procedure>>([])//need to be array of porocedures
+  const [procedures, setProcedures] = useState<Array<Procedure>>([])//need  to be array of porocedures
   const getProcedures = () => {
     axios.get('https://still-plateau-52039.herokuapp.com/procedures')
     .then((response) => setProcedures(response.data),
@@ -123,12 +124,11 @@ const App = () => {
           searchResults ? (
             <div>
                <h4>Search REsults for </h4>
+               <h4>{searchResults.stats.avgPrice}</h4>
+               <h4>{searchResults.stats.avgHealTime}</h4>
               {
-                searchResults.map((results) => (
+                searchResults.procedures.map((results) => (
                   <h3>{results.name}</h3>
-
-                  
-
 
                 )
               )}

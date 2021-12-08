@@ -8,3 +8,12 @@ export interface Procedure {
     hospital_rating: number,
     heal_time: number
 }
+
+
+export interface SearchProcedureRespose {
+    procedures: Array<Procedure>
+    stats: {
+        avgPrice: number
+        avgHealTime: number
+    }
+}
