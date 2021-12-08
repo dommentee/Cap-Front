@@ -20,9 +20,10 @@ const Home = (props: any ) => {
             <div className="landing-banner"> 
                 <div className='intro'>
                     <p>
-            		    Sur+Gical is the app that takes the estimamted cost of a medical procedure.<br/>
-                        The prices are a combnation of you and other users willing to share <br/>
-                        their expierences. The goal? transprenacy of hospitals 
+                        <span>SUR+GICAL</span>
+            		    is here to better prepare you for the unexpected.<br/>
+                        It estimamtes the cost of a medical procedure with the help of you and others willing to share
+                        their expierences. The goal? better expierences and transprenacy of hospitals /clinics.
           		    </p>
                 </div>
                 <div className="intro right">
@@ -34,9 +35,7 @@ const Home = (props: any ) => {
                     <div className="upload-button" onClick={() => navagate('/contribute')}>Up load procedure</div>
 			    </div>
 			</div>
-            <div className="mapWrap">
-                map
-            </div>
+
 		</div>
     )
 }

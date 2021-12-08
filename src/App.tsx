@@ -71,6 +71,11 @@ const App = () => {
       // {withCredentials: true}
         axios.post('http://localhost:3001/users' + '/login', { user_name , password }, { withCredentials:true })
   }
+  const logout = () => {
+    console.log('logged out');
+    
+  }
+
   // const logout = (user: User) => {
   //   axios
   // }
@@ -107,7 +112,7 @@ const App = () => {
       <Router>
         <div className="header">
           <div className="search-form-warp">
-            <div className="home-button"><Link to="/">Home</Link></div>
+           <Link to="/"><div className="home-button">SUR+GICAL</div></Link>
             <form onSubmit={handleSearch} className="seach-form">
               <input 
                 type="input" onChange={(e: any) => setSearchInput(e.target.value)} 
@@ -121,11 +126,14 @@ const App = () => {
           <div className="user-wrap">
             {
               user ? (
-                <div className="session-button" id="login"><Link to="/profile">Profile</Link></div>
+                <>                
+                  <Link to="/profile"><div className="session-button" id="login">profile</div></Link>
+                  <Link to="/"><div className="session-button" id="logout" onClick={logout}>profile</div></Link>
+                </>
               ): (
                 <>
-                  <div className="session-button" id="sign-up"><Link to="/signup">sign up</Link></div>
-                  <div className="session-button" id="login"><Link to="/login">login</Link></div>
+                 <Link to="/signup"><div className="session-button" id="sign-up">signup</div></Link>
+                  <Link to="/login"><div className="session-button" id="login">login</div></Link>
                 </>
               )
             }

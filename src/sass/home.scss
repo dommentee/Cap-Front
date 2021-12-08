@@ -1,26 +1,34 @@
 .home {
-    padding: 20px 0;
+    // padding: 20px 0;
+    padding: 0 7%;
+    display: flex;
+    height: 75vh;
+    // background: url("../landing.png");
+    background: linear-gradient(to left, rgba(226, 226, 226, 0.74)50%, rgba(179, 179, 179, 0.74) 50%);
+    // background-color: rgba(253, 216, 48, 0.945);
+        // border-top: 1px solid rgba(168, 168, 168, 0.753);
+        // border-bottom: 1px solid rgba(168, 168, 168, 0.753);
 }
-// .procedure {
-//     width: 33%;
-//     background-color: violet;
-//     float: left;
-// }
 
 .landing-banner {
     font-size: 1.2em;
     color: #EDEDED;
+    align-self: center;
     display: flex;
-    align-items: center;
-    background-color: rgba(68, 70, 230, 0.884);
-
+    background-color: rgba(68, 71, 230, 0.877);
     .intro {
-        flex: 1;
-        padding: 30px 10px;
+        padding: 80px 20px;
         width: 55%;
+        vertical-align: text-top;
+        span {
+            font-size: 2em;
+            padding: 3px;
+        }
+        p {
+            font-size: 1.1em;
+        }
     }
     .right {
-        flex: 1;
         width: 45%;
         text-align: center;
         color: rgba(68, 70, 230, 0.884);
