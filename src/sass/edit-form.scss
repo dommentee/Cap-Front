@@ -1,0 +1,55 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+    form {
+      width: 100%;
+      padding: 5px 15px;
+      border-radius: 5px;
+      margin: 0 auto;
+      box-sizing: border-box;
+      background-color: #f8f8f8;
+      .procedure-input {
+        width: 60%;
+        padding: 4px;
+      }
+      #procede-lbl {
+        width: 20%;
+      }
+      label {
+        width: 15%;
+        padding: 5px;
+      }
+    } 
+    .close-modal:hover {
+      color: #B4DFE5
+    }
+    .input-wrap {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      background-color: violets;
+      .input {
+        width: 40%;
+        padding: 4px;
+      }
+    }
+    .send {
+      color: #EDEDED; 
+      width: 25%;
+      display: inline-block;
+      padding: 8px 40px;
+      margin:  0 auto;
+      border-radius: 5px;
+      border: 1.5px solid; 
+      background-color: rgba(68, 70, 230, 0.884);
+      &:hover {
+        cursor: pointer;
+        background: #EDEDED;
+        color: #3D3D3D;
+        border-color: #3D3D3D;
+      }    
+    }
+  

@@ -2,13 +2,13 @@
     font-size: 1.2em;
     color: #EDEDED;
     display: flex;
-
-    position: relative;
-    margin: 0 0 30px 0;
+    padding: 0 7%;
+    margin: 20px 0;
 
     .user {
         padding: 20px;
         width: 40%;
+
         background-color: rgba(68, 70, 230, 0.884);
         vertical-align: text-top;
     }
@@ -26,7 +26,8 @@
 
         #user-data {
             font-size: .8em;
-            height: fit-content
+            height: fit-content;
+
         }
         h3 {
             padding: 0 0 10px 0;
@@ -38,6 +39,7 @@
             border: 1px solid;
             color: rgb(27, 27, 27);
             overflow-x: scroll;
+            margin: 5px 0;
 
             table {
                 table-layout: fixed
@@ -69,9 +71,19 @@
         border-radius: 2px;
         &:hover {
           // background: rgba(14, 199, 231, 0.8);
-          background-color: #F5DA20;
           transition: .5s;
           cursor: pointer;
+        }
+    }
+
+    .delete {
+        padding: 6px 30px;
+        width: fit-content;
+        border-radius: 2px;
+        border-width: 0;
+        background: rgba(241, 75, 56, 0.884);
+        &:hover {
+            cursor: pointer;
         }
     }
 }

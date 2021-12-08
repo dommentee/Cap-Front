@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-
+import '../sass/login-logout.scss'
 
 
 const Signup = (props: any) => {
@@ -15,10 +15,10 @@ const Signup = (props: any) => {
     }
 
     return (
-        <div>
+        <div className="form-wrap">
             <h3>Sign up</h3>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="user name">user name</label>
+                <label htmlFor="user name" id="u-l">user name</label><br/>
                 <input
                     type="text"
                     name="user_name"
@@ -26,16 +26,23 @@ const Signup = (props: any) => {
                     value={newUser.user_name}
                     required
                     className="input"
+                    placeholder="user name"
+
                 />
-                <label htmlFor="password">password</label>
+                <br/>
+                <br/>
+                <label htmlFor="password">password</label><br/>
                 <input 
                     type="text"
                     name="password"
                     onChange={handleChange}
                     value={newUser.password}
                     className="input"
+                    placeholder="password"
                 />
-             <input className="send" type="submit" value="SUBMIT"></input>
+                <br/>
+                <br/>
+                <input className="send" type="submit" value="SUBMIT"></input>
             </form>
         </div>
     )

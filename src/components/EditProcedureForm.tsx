@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { Procedure } from "../helpers/types";
-
+import '../sass/edit-form.scss'
 
 const EditProcedureForm = (props: any) => {
     let [procedure, setProcedure] = useState({...props.procedure})
@@ -13,7 +13,7 @@ const EditProcedureForm = (props: any) => {
         props.handleUpdate(procedure);
     }
     return (
-        <div>
+        <div >
         <details>
             <summary>Edit Data</summary>
             <form onSubmit={handleSubmit}> 

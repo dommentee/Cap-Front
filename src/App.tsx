@@ -20,7 +20,7 @@ const procedureApi = 'https://still-plateau-52039.herokuapp.com/procedures/';
 const App = () => {
   ///USERS
   //state of user 
-  let [user, setUser] = useState(false)
+  let [user, setUser] = useState(true)
 
   ////API 
   //set state of data
@@ -128,7 +128,7 @@ const App = () => {
               user ? (
                 <>                
                   <Link to="/profile"><div className="session-button" id="login">profile</div></Link>
-                  <Link to="/"><div className="session-button" id="logout" onClick={logout}>profile</div></Link>
+                  <Link to="/"><div className="session-button" id="logout" onClick={logout}>logout</div></Link>
                 </>
               ): (
                 <>

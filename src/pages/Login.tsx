@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import '../sass/login-logout.scss'
 
 const Login = (props: any) => {
 
@@ -12,10 +13,10 @@ const Login = (props: any) => {
         props.createToken(userLogin)        
     }
     return(
-        <div>
+        <div className="form-wrap">
             <h3>login</h3>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="user name">user name</label>
+                <label htmlFor="user name" id="u-l">user name</label><br/>
                 <input
                     type="text"
                     name="user_name"
@@ -23,16 +24,23 @@ const Login = (props: any) => {
                     value={userLogin.user_name}
                     required
                     className="input"
+                    placeholder="user name"
+                    
                 />
-                <label htmlFor="password">password</label>
+                <br/>
+                <br/>
+                <label htmlFor="password">password</label><br/>
                 <input 
                     type="text"
                     name="password"
                     onChange={handleChange}
                     value={userLogin.password}
                     className="input"
+                    placeholder="password"
                 />
-             <input className="send" type="submit" value="SUBMIT"></input>
+                <br/>
+                <br/>
+                <input className="send" type="submit" value="SUBMIT"></input>
             </form>
         </div>
 

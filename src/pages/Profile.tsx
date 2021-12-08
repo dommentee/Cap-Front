@@ -11,12 +11,12 @@ const Profile = (props: any) => {
     return (
         <div className="profile-wrap">
             <div className="user">
-                <h3>Welcome back user</h3>
-                <h4>
+                <p>Welcome back {}</p>
+                <br/>
+                <p>
                     Thanks to your contributions we are getting closer to your goal
                     we wudlnt be here without you
-                </h4>
-                <h5>best</h5>
+                </p>
                 <span className="name">
             		SUR+GICAL
           		</span>
@@ -43,7 +43,7 @@ const Profile = (props: any) => {
                                 procedure={procedure}
                                 handleUpdate={props.handleUpdate}
                             />
-                            <button onClick={props.handleDelete } value={procedure.procedure_id}>
+                            <button className="delete" onClick={props.handleDelete } value={procedure.procedure_id}>
                                 Delete
                             </button>
                         </div>
