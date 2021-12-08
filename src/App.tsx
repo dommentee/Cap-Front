@@ -24,10 +24,13 @@ const App = () => {
 
   ////API 
   //set state of data
+  const [searchInput, setSearchInput] = useState(null as any)
+  const [searchResults, setSearchResults] = useState<Array<Procedure>>([])
+  const  [connectApi, setConnectApi] = useState<Array<Procedure>>([])
   const [procedures, setProcedures] = useState<Array<Procedure>>([])//need to be array of porocedures
   const getProcedures = () => {
     axios.get('https://still-plateau-52039.herokuapp.com/procedures')
-    .then((response) => setProcedures(response.data.rows),
+    .then((response) => setProcedures(response.data),
     (err) => console.error(err.message));
   }
   // console.log(procedures);
@@ -53,13 +56,10 @@ const App = () => {
     (err) => console.error(err.message));
   }
 
-  
   //users
   const getUser = () => {
     console.log(user);
   }
-
-
   //create
   const createUser = (newUser: User) => {
     axios.post('http://localhost:3001/users', newUser)
@@ -68,22 +68,26 @@ const App = () => {
   }
   
   ///SEARCH 
-  let [searchInput, setSearchInput] = useState(null as any)
-  const makeRequest = (filter: any) => {
-    axios.get(procedureApi + 'search/' + filter)
-    .then((response) => getProcedures())
-    
+  const makeRequest = async(filter: any) => {
+    const response = await axios.get(procedureApi + 'search/' + filter)
+    setSearchResults(response.data)
+    console.log(searchResults);
+    return response.data
   }
 
   useEffect(() => {
-    makeRequest('')
-    // getProcedures()
+    console.log(searchResults);
+  },[searchResults])
+
+  useEffect(() => {
+    // makeRequest(`${searchInput}`)
+    getProcedures()
   },[])
+
 
   const handleSearch = (e: any) => {
     e.preventDefault();
     makeRequest(`${searchInput}`)
-    console.log(procedures); 
   }
 
   return (
@@ -116,13 +120,21 @@ const App = () => {
           </div>
         </div>
         {
-            searchInput ? (
-              <div>
-                
-                
-              </div>
-            ): <></>
-          }
+          searchResults ? (
+            <div>
+               <h4>Search REsults for </h4>
+              {
+                searchResults.map((results) => (
+                  <h3>{results.name}</h3>
+
+                  
+
+
+                )
+              )}
+            </div>
+          ): <></>
+        }
         <Routes>
           <Route path="/" element={
             <Home />
