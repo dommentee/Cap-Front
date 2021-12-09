@@ -100,3 +100,43 @@
     }
   }
 }
+.results {
+  h3 {
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  h4 {
+    text-align: center;
+    padding: 10px 0;
+  }
+  .result-stats{
+    padding: 10px 7%;
+    display: inline-block;
+    width: 100%;;
+    .hospital {
+      width: 25%;
+      margin: 0 .5%;
+      float: left;
+      padding: 8px 2px;
+      border: 1px solid rgb(204, 203, 203);
+      div {
+        padding: 2px;
+        text-align: center;
+        margin: 0 1px;
+        float: left;
+        
+      }
+    }
+  }
+
+}
+.chartwrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.avg-cost {
+  width: 40%;
+  float: left;
+}

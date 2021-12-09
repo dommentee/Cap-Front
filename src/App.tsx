@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+
+
 import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 
 
@@ -15,6 +17,8 @@ import Signup from './pages/Signup';
 import Footer from './components/Footer';
 import ProcedureForm from './components/ProcedureForm';
 import Profile from './pages/Profile';
+import Chart  from './components/Chart';
+import HealChart from './components/HealChart';
 
 const procedureApi = 'https://still-plateau-52039.herokuapp.com/procedures/';
 const App = () => {
@@ -80,17 +84,15 @@ const App = () => {
   //   axios
   // }
 
-
-
-
-
   ///SEARCH 
   const makeRequest = async(filter: any) => {
     const response = await axios.get(procedureApi + 'search/' + filter)
     setSearchResults(response.data)
+
     console.log(searchResults);
     return response.data
   }
+  
 
   useEffect(() => {
     console.log(searchResults);
@@ -141,16 +143,29 @@ const App = () => {
         </div>
         {
           searchResults ? (
-            <div>
-               <h4>Search REsults for </h4>
-               <h4>{searchResults.stats.avgPrice}</h4>
-               <h4>{searchResults.stats.avgHealTime}</h4>
+            <div className="results">
+              <h3>Search REsults for {searchInput}</h3>
+              <div className="chartwrap">
+                <Chart searchResults={searchResults}
+                      searchInput={searchInput}
+                />
+                <HealChart searchResults={searchResults}
+                    searchInput={searchInput}
+                />
+              </div> 
+              <div className="result-stats">
+              <h4>recommended hospitals/clinics</h4>
               {
                 searchResults.procedures.map((results) => (
-                  <h3>{results.name}</h3>
-
+                  <div className="hospital">
+                    <div>name: {results.hospital_name}</div>
+                    <div>City: {results.hospital_city}</div>
+                    <div>State: {results.hospital_state}</div>
+                    <div>Rating: {results.hospital_rating}</div>
+                  </div>
                 )
               )}
+            </div>
             </div>
           ): <></>
         }

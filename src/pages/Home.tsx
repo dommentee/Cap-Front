@@ -22,7 +22,7 @@ const Home = (props: any ) => {
                     <p>
                         <span>SUR+GICAL</span>
             		    is here to better prepare you for the unexpected.<br/>
-                        It estimamtes the cost of a medical procedure with the help of you and others willing to share
+                        It estimates the cost of a medical procedure with the help of you and others willing to share
                         their expierences. The goal? better expierences and transprenacy of hospitals /clinics.
           		    </p>
                 </div>
