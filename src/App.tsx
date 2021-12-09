@@ -24,7 +24,7 @@ const procedureApi = 'https://still-plateau-52039.herokuapp.com/procedures/';
 const App = () => {
   ///USERS
   //state of user 
-  let [user, setUser] = useState(true)
+  let [user, setUser] = useState<User>()
 
   ////API 
   //set state of data
@@ -60,23 +60,36 @@ const App = () => {
     (err) => console.error(err.message));
   }
 
-  //users
-  const getUser = () => {
-    console.log(user);
-  }
+
   //create
   const createUser = (newUser: User) => {
-    axios.post('http://localhost:3001/users', newUser)
-    .then((response) => getUser(),
+    console.log(newUser);
+    //@ts-ignore
+    axios.post('http://localhost:3001/users', newUser, {withCredentials: true})
+    .then((response) => response,
     (err) => console.error(err.message));
   }
   const createToken = (user_name: User, password: User) => {
-    axios.get('http://localhost:3001/users', {withCredentials: true});
       // {withCredentials: true}
-        axios.post('http://localhost:3001/users' + '/login', { user_name , password }, { withCredentials:true })
+      axios.post('http://localhost:3001/login', { user_name , password },{withCredentials: true})
+      .then((response) => getUser(),
+      (err) => console.error(err.message));
+      console.log(user);
+      
   }
+
+
+  const getUser = () => {
+    axios.get('http://localhost:3001/users', {withCredentials: true})
+    .then((response) => setUser(response.data),
+    (err) => console.error(err.message));
+  }
+
+
   const logout = () => {
-    console.log('logged out');
+    axios.post('http://localhost:3001/users/logout', {withCredentials: true})
+    .then((response) => setUser(undefined),
+    (err) => console.error(err.message));
     
   }
 
@@ -101,6 +114,7 @@ const App = () => {
   useEffect(() => {
     // makeRequest(`${searchInput}`)
     getProcedures()
+    getUser()
   },[])
 
 
@@ -180,6 +194,7 @@ const App = () => {
            procedures={procedures}
            handleDelete={handleDelete}
            handleUpdate={handleUpdate}
+           user={user}
            />}/>
           {/* <Route path="*" element={<ErrorPage />} />  */}
         </Routes>

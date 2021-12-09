@@ -10,7 +10,8 @@ const Login = (props: any) => {
     } 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-        props.createToken(userLogin)        
+        console.log(userLogin);
+        props.createToken(userLogin.user_name, userLogin.password)        
     }
     return(
         <div className="form-wrap">
