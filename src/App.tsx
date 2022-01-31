@@ -32,6 +32,8 @@ const App = () => {
   const [searchResults, setSearchResults] = useState <SearchProcedureRespose>()
   const  [connectApi, setConnectApi] = useState<Array<Procedure>>([])
   const [procedures, setProcedures] = useState<Array<Procedure>>([])//need  to be array of porocedures
+
+  //procedures routes 
   const getProcedures = () => {
     axios.get('https://still-plateau-52039.herokuapp.com/procedures')
     .then((response) => setProcedures(response.data),
@@ -59,6 +61,7 @@ const App = () => {
     .then((response) => getProcedures(),
     (err) => console.error(err.message));
   }
+  //end of procedures routes
 
 
   //create
@@ -74,23 +77,22 @@ const App = () => {
       axios.post('http://localhost:3001/login', { user_name , password },{withCredentials: true})
       .then((response) => getUser(),
       (err) => console.error(err.message));
-      console.log(user);
       
   }
 
-
   const getUser = () => {
     axios.get('http://localhost:3001/users', {withCredentials: true})
-    .then((response) => setUser(response.data),
+    .then((response) => setUser(response.data),  
     (err) => console.error(err.message));
+    console.log(user);
+    
   }
 
 
   const logout = () => {
-    axios.post('http://localhost:3001/users/logout', {withCredentials: true})
+    axios.post('http://localhost:3001/logout', {withCredentials: true})
     .then((response) => setUser(undefined),
     (err) => console.error(err.message));
-    
   }
 
   // const logout = (user: User) => {
@@ -101,14 +103,11 @@ const App = () => {
   const makeRequest = async(filter: any) => {
     const response = await axios.get(procedureApi + 'search/' + filter)
     setSearchResults(response.data)
-
-    console.log(searchResults);
     return response.data
   }
   
 
   useEffect(() => {
-    console.log(searchResults);
   },[searchResults])
 
   useEffect(() => {
@@ -158,7 +157,7 @@ const App = () => {
         {
           searchResults ? (
             <div className="results">
-              <h3>Search REsults for {searchInput}</h3>
+              <h3>Search Results for {searchInput}</h3>
               <div className="chartwrap">
                 <Chart searchResults={searchResults}
                       searchInput={searchInput}
@@ -189,7 +188,10 @@ const App = () => {
           }/>
           <Route path="/signup" element={<Signup createUser={createUser}/>}/>
           <Route path="/login" element={<Login createToken={createToken}/>}/>
-          <Route path="/contribute" element={<ProcedureForm  handleCreate={handleCreate}/>}/>
+          <Route path="/contribute" element={<ProcedureForm 
+            user={user}
+            handleCreate={handleCreate}
+          />}/>
           <Route path="/profile" element={<Profile
            procedures={procedures}
            handleDelete={handleDelete}

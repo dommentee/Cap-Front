@@ -32,7 +32,7 @@ const Login = (props: any) => {
                 <br/>
                 <label htmlFor="password">password</label><br/>
                 <input 
-                    type="text"
+                    type="password"
                     name="password"
                     onChange={handleChange}
                     value={userLogin.password}

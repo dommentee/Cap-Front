@@ -1,5 +1,7 @@
 import React,{ChangeEvent, useState} from "react";
 import '../sass/procedure-form.scss'
+import '../helpers/user'
+import { userInfo } from "os";
 
 //procedure name
 //Price
@@ -9,7 +11,8 @@ import '../sass/procedure-form.scss'
 //healing time
 const ProcedureForm = (props: any) => {
     //set state of form
-    const defaultForm = {name: '', price: '', hospital_name: '',hospital_city: '',hospital_state: '',hospital_rating: '',heal_time: ''}
+
+    const defaultForm = {name: '', price: '', hospital_name: '',hospital_city: '',hospital_state: '',hospital_rating: '',heal_time: '', contributor_id: ''}
     let [procedure, setProcedure] = useState(defaultForm)
 
     //handle change
@@ -24,6 +27,9 @@ const ProcedureForm = (props: any) => {
         props.handleCreate(procedure)        
     }
 
+    if(!props.user) return <div>loading...</div>
+    console.log(props.user.id);
+    
     return (
         <div className="procedure-form">
             <form onSubmit={handleSubmit}> 
@@ -34,18 +40,16 @@ const ProcedureForm = (props: any) => {
                     <br/>
                     <br/>
                 </h2>
+                <label htmlFor="name" id="procede-lbl" >Procedure </label><br/>
+                <input
+                    type="text"
+                    name="name"
+                    onChange={handleChange}
+                    value={procedure.name}
+                    className="procedure-input"
+                />
                 <div className="input-wrap">
-                    <label htmlFor="name" id="procede-lbl" >Procedure </label>
-                    <input
-                        type="text"
-                        name="name"
-                        onChange={handleChange}
-                        value={procedure.name}
-                        className="procedure-input"
-                    />
-                </div>
-                <div className="input-wrap">
-                    <label htmlFor="price">Price</label>
+                    <label htmlFor="price">Price</label><br/>
                     <input
                         type="number"
                         name="price"
@@ -53,7 +57,7 @@ const ProcedureForm = (props: any) => {
                         value={procedure.price}
                         className="input"
                     />
-                    <label htmlFor="Hospital name">hospital name</label>
+                    <label htmlFor="Hospital name">hospital name</label><br/>
                     <input 
                         type="text"
                         name="hospital_name"
@@ -63,7 +67,7 @@ const ProcedureForm = (props: any) => {
                     />
                 </div>
                 <div className="input-wrap">
-                    <label htmlFor="Hospital city">Hospital City</label>
+                    <label htmlFor="Hospital city">Hospital City</label><br/>
                     <input 
                         type="text"
                         name="hospital_city"
@@ -71,7 +75,7 @@ const ProcedureForm = (props: any) => {
                         value={procedure.hospital_city}
                         className="input"
                     />
-                    <label htmlFor="Hospital State">Hospital State</label>
+                    <label htmlFor="Hospital State">Hospital State</label><br/>
                     <input 
                         type="text"
                         name="hospital_state"
@@ -81,7 +85,7 @@ const ProcedureForm = (props: any) => {
                     />
                 </div>
                 <div className="input-wrap">
-                    <label htmlFor="Hospital rating">Rate Hospital</label>
+                    <label htmlFor="Hospital rating">Rate Hospital</label><br/>
                     <input 
                         type="number"
                         name="hospital_rating"
@@ -89,7 +93,7 @@ const ProcedureForm = (props: any) => {
                         value={procedure.hospital_rating}
                         className="input"
                     />
-                    <label htmlFor="healing time">Days to heal</label>
+                    <label htmlFor="healing time">Days to heal</label><br/>
                     <input 
                         type="number"
                         name="heal_time"
@@ -100,6 +104,14 @@ const ProcedureForm = (props: any) => {
                 </div>
                 <br/>
                 <div className="input-wrap">
+                <label htmlFor="procedure_id">Contributor ID </label><br/>
+                <input
+                    type="text"
+                    name="procedure_id"
+                    onChange={handleChange}
+                    value={props.user.id}
+                    className="procedure-input"
+                />
                 <input className="send" type="submit" value="SUBMIT"></input>
                 </div>
     

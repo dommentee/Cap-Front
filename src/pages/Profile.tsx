@@ -9,10 +9,12 @@ import '../sass/profile.scss'
 
 const Profile = (props: any) => {
     let navagate = useNavigate()
+    if(!props.user) return <div>loading...</div>
     return (
         <div className="profile-wrap">
             <div className="user">
-                <p>Welcome back {}</p>
+
+                <p>Welcome back {props.user.username}</p>
                 <br/>
                 <p>
                     Thanks to your contributions we are getting closer to your goal

@@ -6,7 +6,8 @@ export interface Procedure {
     hospital_city: string,
     hospital_state: string,
     hospital_rating: number,
-    heal_time: number
+    heal_time: number,
+    contributor_id: number
 }
 
 
