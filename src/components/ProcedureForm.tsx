@@ -104,14 +104,17 @@ const ProcedureForm = (props: any) => {
                 </div>
                 <br/>
                 <div className="input-wrap">
-                <label htmlFor="procedure_id">Contributor ID </label><br/>
+                <label htmlFor="contributor_id">Contributor ID </label><br/>
                 <input
                     type="text"
-                    name="procedure_id"
+                    name="contributor_id"
                     onChange={handleChange}
                     value={props.user.id}
-                    className="procedure-input"
+                    className="input"
+                    readOnly={true}
+                    
                 />
+                <br/>
                 <input className="send" type="submit" value="SUBMIT"></input>
                 </div>
     

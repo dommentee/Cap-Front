@@ -90,9 +90,15 @@ const App = () => {
 
 
   const logout = () => {
+    let windowCookie = document.cookie
+    // console.log(windowCookie);
     axios.post('http://localhost:3001/logout', {withCredentials: true})
     .then((response) => setUser(undefined),
     (err) => console.error(err.message));
+    localStorage.clear();
+    console.log(windowCookie);
+    
+
   }
 
   // const logout = (user: User) => {
