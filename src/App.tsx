@@ -19,6 +19,7 @@ import ProcedureForm from './components/ProcedureForm';
 import Profile from './pages/Profile';
 import Chart  from './components/Chart';
 import HealChart from './components/HealChart';
+import { Session } from 'inspector';
 
 const procedureApi = 'https://still-plateau-52039.herokuapp.com/procedures/';
 const App = () => {
@@ -90,20 +91,18 @@ const App = () => {
 
 
   const logout = () => {
-    let windowCookie = document.cookie
-    // console.log(windowCookie);
-    axios.post('http://localhost:3001/logout', {withCredentials: true})
-    .then((response) => setUser(undefined),
-    (err) => console.error(err.message));
-    localStorage.clear();
-    console.log(windowCookie);
-    
+    fetch('http://localhost:3001/logout', {
+      method: 'POST',
+      redirect: 'follow',
+      credentials: 'include', // Don't forget to specify this if you need cookies
+    }).then((response) => setUser(undefined),
+    (err) => console.error(err.message));  
+
+    // axios.post('http://localhost:3001/logout', {withCredentials: true})
+    // .then((response) => setUser(undefined),
+    // (err) => console.error(err.message));    
 
   }
-
-  // const logout = (user: User) => {
-  //   axios
-  // }
 
   ///SEARCH 
   const makeRequest = async(filter: any) => {
