@@ -19,7 +19,6 @@ import ProcedureForm from './components/ProcedureForm';
 import Profile from './pages/Profile';
 import Chart  from './components/Chart';
 import HealChart from './components/HealChart';
-import { Session } from 'inspector';
 
 const procedureApi = 'https://still-plateau-52039.herokuapp.com/procedures/';
 const App = () => {
@@ -31,7 +30,7 @@ const App = () => {
   //set state of data
   const [searchInput, setSearchInput] = useState(null as any)
   const [searchResults, setSearchResults] = useState <SearchProcedureRespose>()
-  const  [connectApi, setConnectApi] = useState<Array<Procedure>>([])
+  const [connectApi, setConnectApi] = useState<Array<Procedure>>([])
   const [procedures, setProcedures] = useState<Array<Procedure>>([])//need  to be array of porocedures
 
   //procedures routes 
@@ -40,8 +39,7 @@ const App = () => {
     .then((response) => setProcedures(response.data),
     (err) => console.error(err.message));
   }
-  // console.log(procedures);
-  
+
   //create fuction
   const handleCreate = (newProcedure: Procedure) => {
     axios.post('https://still-plateau-52039.herokuapp.com/procedures', newProcedure)
@@ -65,30 +63,28 @@ const App = () => {
   //end of procedures routes
 
 
-  //create
+  //users 
   const createUser = (newUser: User) => {
-    console.log(newUser);
     //@ts-ignore
     axios.post('http://localhost:3001/users', newUser, {withCredentials: true})
     .then((response) => response,
     (err) => console.error(err.message));
-  }
-  const createToken = (user_name: User, password: User) => {
-      // {withCredentials: true}
-      axios.post('http://localhost:3001/login', { user_name , password },{withCredentials: true})
-      .then((response) => getUser(),
-      (err) => console.error(err.message));
-      
+    
   }
 
   const getUser = () => {
     axios.get('http://localhost:3001/users', {withCredentials: true})
     .then((response) => setUser(response.data),  
     (err) => console.error(err.message));
-    console.log(user);
     
   }
+  const createToken = (user_name: User, password: User) => {
+    // {withCredentials: true}
+    axios.post('http://localhost:3001/login', { user_name , password },{withCredentials: true})
+    .then((response) => getUser(), 
+    (err) => console.error(err.message));
 
+  }
 
   const logout = () => {
     fetch('http://localhost:3001/logout', {
@@ -134,7 +130,7 @@ const App = () => {
       <Router>
         <div className="header">
           <div className="search-form-warp">
-           <Link to="/"><div className="home-button">SUR+GICAL</div></Link>
+           <Link to="/"><div className="home-button">SUR<i className="fas fa-plus"></i>GICAL</div></Link>
             <form onSubmit={handleSearch} className="seach-form">
               <input 
                 type="input" onChange={(e: any) => setSearchInput(e.target.value)} 
