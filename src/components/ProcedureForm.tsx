@@ -1,7 +1,7 @@
 import React,{ChangeEvent, useState} from "react";
 import '../sass/procedure-form.scss'
 import '../helpers/user'
-import { userInfo } from "os";
+import Login from '../pages/Login'
 
 //procedure name
 //Price
@@ -27,7 +27,7 @@ const ProcedureForm = (props: any) => {
         props.handleCreate(procedure)        
     }
 
-    if(!props.user) return <div>loading...</div>
+    if(!props.user) return <Login/>
     console.log(props.user.id);
     
     return (

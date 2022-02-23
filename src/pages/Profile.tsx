@@ -1,6 +1,7 @@
 import { userInfo } from 'os'
 import React,{useState} from 'react'
 import { useNavigate} from 'react-router-dom'
+import Login from './Login'
 
 
 import EditProcedureForm from '../components/EditProcedureForm'
@@ -9,7 +10,7 @@ import '../sass/profile.scss'
 
 const Profile = (props: any) => {
     let navagate = useNavigate()
-    if(!props.user) return <div>loading...</div>
+    if(!props.user) return <Login/>
     return (
         <div className="profile-wrap">
             <div className="user">

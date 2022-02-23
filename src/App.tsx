@@ -98,6 +98,8 @@ const App = () => {
     }).then((response) => setUser(undefined),
     (err) => console.error(err.message));  
 
+    //axios call does not work do delete cookies in the applicaion cookies 
+    //had to use fatch
     // axios.post('http://localhost:3001/logout', {withCredentials: true})
     // .then((response) => setUser(undefined),
     // (err) => console.error(err.message));    
