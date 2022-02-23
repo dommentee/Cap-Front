@@ -11,6 +11,11 @@ import '../sass/profile.scss'
 const Profile = (props: any) => {
     let navagate = useNavigate()
     if(!props.user) return <Login/>
+    const profileId = props.user.id;
+   
+    const userProcedures = (props.procedures.contributor_id)
+    
+
     return (
         <div className="profile-wrap">
             <div className="user">
