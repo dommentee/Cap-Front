@@ -66,28 +66,28 @@ const App = () => {
   //users 
   const createUser = (newUser: User) => {
     //@ts-ignore
-    axios.post('http://localhost:3001/users', newUser, {withCredentials: true})
+    axios.post('https://still-plateau-52039.herokuapp.com/users', newUser, {withCredentials: true})
     .then((response) => response,
     (err) => console.error(err.message));
     
   }
 
   const getUser = () => {
-    axios.get('http://localhost:3001/users', {withCredentials: true})
+    axios.get('https://still-plateau-52039.herokuapp.com/users', {withCredentials: true})
     .then((response) => setUser(response.data),  
     (err) => console.error(err.message));
     
   }
   const createToken = (user_name: User, password: User) => {
     // {withCredentials: true}
-    axios.post('http://localhost:3001/login', { user_name , password },{withCredentials: true})
+    axios.post('https://still-plateau-52039.herokuapp.com//login', { user_name , password },{withCredentials: true})
     .then((response) => getUser(), 
     (err) => console.error(err.message));
 
   }
 
   const logout = () => {
-    fetch('http://localhost:3001/logout', {
+    fetch('https://still-plateau-52039.herokuapp.com/logout', {
       method: 'POST',
       redirect: 'follow',
       credentials: 'include', // Don't forget to specify this if you need cookies
