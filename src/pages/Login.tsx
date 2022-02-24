@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 
 const Login = (props: any) => {
-    // let navagate = useNavigate()
+    let navagate = useNavigate()
     const defaultForm = {user_name: '', password: ''}
     let [userLogin, setUserLogin] = useState(defaultForm)
     const handleChange = (e:any) => {
@@ -15,7 +15,7 @@ const Login = (props: any) => {
         e.preventDefault()
         console.log(userLogin);
         props.createToken(userLogin.user_name, userLogin.password) 
-        // navagate('/profile')  
+        navagate('/profile')  
     }
     return(
         <div className="form-wrap">
