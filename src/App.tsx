@@ -72,12 +72,7 @@ const App = () => {
     
   }
 
-  const getUser = () => {
-    axios.get('https://still-plateau-52039.herokuapp.com/users', {withCredentials: true})
-    .then((response) => setUser(response.data),  
-    (err) => console.error(err.message));
-    
-  }
+
   const createToken = (user_name: User, password: User) => {
     // {withCredentials: true}
     axios.post('https://still-plateau-52039.herokuapp.com/login', { user_name , password },{withCredentials: true})
@@ -85,7 +80,13 @@ const App = () => {
     (err) => console.error(err.message));
 
   }
-
+  const getUser = () => {
+    axios.get('https://still-plateau-52039.herokuapp.com/users', {withCredentials: true})
+    .then((response) => setUser(response.data),  
+    (err) => console.error(err.message));
+    
+  }
+  
   const logout = () => {
     fetch('https://still-plateau-52039.herokuapp.com/logout', {
       method: 'POST',
