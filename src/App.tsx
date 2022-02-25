@@ -29,7 +29,7 @@ const App = () => {
   var xhr = new XMLHttpRequest();
   xhr.open('POST', 'https://enigmatic-retreat-81576.herokuapp.com/login', true);
   xhr.open('GET', 'https://enigmatic-retreat-81576.herokuapp.com/login', true);
-  xhr.open('GET', 'https://enigmatic-retreat-81576.herokuapp.com/users', true);
+  xhr.open('POST', 'https://enigmatic-retreat-81576.herokuapp.com/users', true);
   xhr.withCredentials = true;
   xhr.send(null);
 
