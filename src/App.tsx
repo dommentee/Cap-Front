@@ -25,6 +25,10 @@ const App = () => {
   ///USERS
   //state of user 
   let [user, setUser] = useState<User>()
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://enigmatic-retreat-81576.herokuapp.com', true);
+  xhr.withCredentials = true;
+  xhr.send(null);
 
   ////API 
   //set state of data
