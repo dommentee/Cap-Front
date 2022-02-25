@@ -25,6 +25,13 @@ const App = () => {
   ///USERS
   //state of user 
   let [user, setUser] = useState<User>()
+  
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'https://still-plateau-52039.herokuapp.com/users', true);
+  xhr.open('GET', 'https://still-plateau-52039.herokuapp.com/users', true);
+  xhr.open('GET', 'https://still-plateau-52039.herokuapp.com/login', true);
+  xhr.withCredentials = true;
+  xhr.send(null);
 
   ////API 
   //set state of data
@@ -114,11 +121,11 @@ const App = () => {
   useEffect(() => {
     // makeRequest(`${searchInput}`)
     getProcedures()
-    getUser()
+    // getUser()
   },[])
-  // useEffect(() => {
+  useEffect(() => {
 
-  // }, [getUser])
+  }, [getUser])
 
   const handleSearch = (e: any) => {
     e.preventDefault();
