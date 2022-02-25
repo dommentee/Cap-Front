@@ -27,9 +27,9 @@ const App = () => {
   let [user, setUser] = useState<User>()
   
   var xhr = new XMLHttpRequest();
-  xhr.open('POST', 'https://still-plateau-52039.herokuapp.com', true);
-  xhr.open('GET', 'https://still-plateau-52039.herokuapp.com', true);
-  // xhr.open('GET', 'https://enigmatic-retreat-81576.herokuapp.com/users', true);
+  xhr.open('POST', 'https://still-plateau-52039.herokuapp.com/users', true);
+  xhr.open('GET', 'https://still-plateau-52039.herokuapp.com/users', true);
+  xhr.open('GET', 'https://still-plateau-52039.herokuapp.com/login', true);
   xhr.withCredentials = true;
   xhr.send(null);
 
