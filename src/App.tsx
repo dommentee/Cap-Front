@@ -121,11 +121,11 @@ const App = () => {
   useEffect(() => {
     // makeRequest(`${searchInput}`)
     getProcedures()
-    getUser()
+    // getUser()
   },[])
-  // useEffect(() => {
+  useEffect(() => {
 
-  // }, [getUser])
+  }, [getUser])
 
   const handleSearch = (e: any) => {
     e.preventDefault();
