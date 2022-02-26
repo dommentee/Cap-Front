@@ -85,15 +85,15 @@ const App = () => {
     // (err) => console.error(err.message));
   }
   const getUser = () => {
-    fetch('https://still-plateau-52039.herokuapp.com/users', {
-      method: 'GET',
-      redirect: 'follow',
-      credentials: 'include', // Don't forget to specify this if you need cookies
-    }).then((response) => setUser(user),  
-    (err) => console.error(err.message));
-    // axios.get('https://still-plateau-52039.herokuapp.com/users', {withCredentials: true})
-    // .then((response) => setUser(response.data),  
+    // fetch('https://still-plateau-52039.herokuapp.com/users', {
+    //   method: 'GET',
+    //   redirect: 'follow',
+    //   credentials: 'include', // Don't forget to specify this if you need cookies
+    // }).then((response) => setUser(user),  
     // (err) => console.error(err.message));
+    axios.get('https://still-plateau-52039.herokuapp.com/users', {withCredentials: true})
+    .then((response) => setUser(response.data),  
+    (err) => console.error(err.message));
   }
 
   const logout = () => {
