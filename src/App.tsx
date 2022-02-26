@@ -72,7 +72,7 @@ const App = () => {
     
   }
   const createToken = (user_name: User, password: User) => {
-    // // {withCredentials: true}
+    // {withCredentials: true}
     axios.post('https://still-plateau-52039.herokuapp.com/login', { user_name , password },{withCredentials: true})
     .then((response) => getUser(), 
     (err) => console.error(err.message));
