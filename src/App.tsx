@@ -21,16 +21,6 @@ import Chart  from './components/Chart';
 import HealChart from './components/HealChart';
 
 const procedureApi = 'https://still-plateau-52039.herokuapp.com/procedures/';
-const instance = axios.create({
-  baseURL: 'https://still-plateau-52039.herokuapp.com',
-  timeout: 5000,
-  headers: {
-    'Accept-Version': '1',
-    'Accept': 'application/json',
-    'Access-Control-Allow-Origin': '*',
-    'Content-Type': 'application/json; charset=utf-8',
-  },
-});
 const App = () => {
   ///USERS
   //state of user 
