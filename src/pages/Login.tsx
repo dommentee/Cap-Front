@@ -13,7 +13,6 @@ const Login = (props: any) => {
     } 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-        //@ts-ignore
         props.createToken(userLogin.user_name, userLogin.password) 
         navagate('/profile')  
 
