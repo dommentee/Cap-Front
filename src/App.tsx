@@ -79,7 +79,8 @@ const App = () => {
         "Content-Type": "application/json",
       },
       redirect: 'follow',
-      credentials: 'include', 
+      credentials: 'include',
+      body: JSON.stringify(user),
      }).then((response) => getUser(), 
      (err) => console.error(err.message));
     // {withCredentials: true}
