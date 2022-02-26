@@ -13,9 +13,9 @@ const Login = (props: any) => {
     } 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-        console.log(userLogin);
         props.createToken(userLogin.user_name, userLogin.password) 
         navagate('/profile')  
+
     }
     return(
         <div className="form-wrap">
