@@ -25,7 +25,7 @@ const App = () => {
   ///USERS
   //state of user 
   let [user, setUser] = useState<User>()
-  
+
   ////API 
   //set state of data
   const [searchInput, setSearchInput] = useState(null as any)
@@ -109,16 +109,13 @@ const App = () => {
 
   useEffect(() => {
   },[searchResults])
-  
 
   useEffect(() => {
     // makeRequest(`${searchInput}`)
     getProcedures()
-    // getUser()
+    getUser()
   },[])
-  useEffect(() => {
 
-  }, [getUser])
 
   const handleSearch = (e: any) => {
     e.preventDefault();
