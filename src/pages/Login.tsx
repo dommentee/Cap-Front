@@ -14,7 +14,9 @@ const Login = (props: any) => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
         props.createToken(userLogin.user_name, userLogin.password) 
-        navagate('/profile')  
+        if(props.user !== null) {
+            navagate('/profile')  
+        }else navagate('/login')  
 
     }
     return(

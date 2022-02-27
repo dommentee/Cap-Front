@@ -190,7 +190,7 @@ const App = () => {
             <Home />
           }/>
           <Route path="/signup" element={<Signup createUser={createUser}/>}/>
-          <Route path="/login" element={<Login createToken={createToken}/>}/>
+          <Route path="/login" element={<Login createToken={createToken} user={user}/>}/>
           <Route path="/contribute" element={<ProcedureForm 
             user={user}
             handleCreate={handleCreate}
