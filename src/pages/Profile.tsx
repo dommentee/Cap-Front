@@ -10,7 +10,10 @@ import '../sass/profile.scss'
 
 const Profile = (props: any) => {
     let navagate = useNavigate()
-    if(!props.user) return <Login/>
+    if(!props.user) {
+        navagate('/login')
+
+    }
     const profileId = props.user.id;
    
     const userProcedures = (props.procedures.contributor_id)
