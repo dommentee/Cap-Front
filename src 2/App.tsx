@@ -19,8 +19,9 @@ import ProcedureForm from './components/ProcedureForm';
 import Profile from './pages/Profile';
 import Chart  from './components/Chart';
 import HealChart from './components/HealChart';
+import { Session } from 'inspector';
 
-const procedureApi = 'https://still-plateau-52039.herokuapp.com/procedures/';
+const procedureApi = 'http://localhost:3001/procedures/';
 const App = () => {
   ///USERS
   //state of user 
@@ -30,76 +31,75 @@ const App = () => {
   //set state of data
   const [searchInput, setSearchInput] = useState(null as any)
   const [searchResults, setSearchResults] = useState <SearchProcedureRespose>()
-  const [connectApi, setConnectApi] = useState<Array<Procedure>>([])
+  const  [connectApi, setConnectApi] = useState<Array<Procedure>>([])
   const [procedures, setProcedures] = useState<Array<Procedure>>([])//need  to be array of porocedures
+  const [userProcedures, setUserPRocedures] = useState<Array<Procedure>>([])
+
 
   //procedures routes 
   const getProcedures = () => {
-    axios.get('https://still-plateau-52039.herokuapp.com/procedures')
+    axios.get('http://localhost:3001/procedures')
     .then((response) => setProcedures(response.data),
     (err) => console.error(err.message));
   }
 
+  // console.log(procedures);
+  
   //create fuction
   const handleCreate = (newProcedure: Procedure) => {
-    axios.post('https://still-plateau-52039.herokuapp.com/procedures', newProcedure)
+    axios.post('http://localhost:3001/procedures', newProcedure)
     .then((response) => getProcedures(),
       (err) => console.error(err.message));
       console.log(newProcedure);
   }
   //update
   const handleUpdate = (editProcedure: Procedure) => {
-    axios.put('https://still-plateau-52039.herokuapp.com/procedures/' + editProcedure.procedure_id, editProcedure)
+    axios.put('http://localhost:3001/procedures/' + editProcedure.procedure_id, editProcedure)
     .then((response) => getProcedures(),
     (err) => console.error(err.message));
     console.log(editProcedure);     
   }
   //delete
   const handleDelete = (e: any) => {
-    axios.delete('https://still-plateau-52039.herokuapp.com/procedures/' + e.target.value)
+    axios.delete('http://localhost:3001/procedures/' + e.target.value)
     .then((response) => getProcedures(),
     (err) => console.error(err.message));
   }
   //end of procedures routes
 
 
-  //users 
+  //create
   const createUser = (newUser: User) => {
+    console.log(newUser);
     //@ts-ignore
-    axios.post('https://still-plateau-52039.herokuapp.com/users', newUser, {withCredentials: true})
+    axios.post('http://localhost:3001/users', newUser, {withCredentials: true})
     .then((response) => response,
     (err) => console.error(err.message));
-    
   }
   const createToken = (user_name: User, password: User) => {
     // {withCredentials: true}
-    fetch('https://still-plateau-52039.herokuapp.com/login', {
-      method: 'POST',
-      redirect: 'follow',
-      credentials: 'include',
-      body: JSON.stringify( { user_name , password })
-    }).then((response) => getUser(),(err) => console.error(err.message));
-    
-    // axios.post('https://still-plateau-52039.herokuapp.com/login', { user_name , password },{withCredentials: true})
-    // .then((response) => getUser(), 
-    // (err) => console.error(err.message));
-  }
-  const getUser = () => {
-    axios.get('https://still-plateau-52039.herokuapp.com/users', {withCredentials: true})
-    .then((response) => setUser(response.data),  
+    axios.post('http://localhost:3001/login', { user_name , password },{withCredentials: true})
+    .then((response) => getUser(),
     (err) => console.error(err.message));
+      
   }
 
+  const getUser = () => {
+    axios.get('http://localhost:3001/users', {withCredentials: true})
+    .then((response) => setUser(response.data),  
+    (err) => console.error(err.message))
+    
+  }
+
+
   const logout = () => {
-    fetch('https://still-plateau-52039.herokuapp.com/logout', {
+    fetch('http://localhost:3001/logout', {
       method: 'POST',
       redirect: 'follow',
       credentials: 'include', // Don't forget to specify this if you need cookies
     }).then((response) => setUser(undefined),
     (err) => console.error(err.message));  
 
-    //axios call does not work do delete cookies in the applicaion cookies 
-    //had to use fatch
     // axios.post('http://localhost:3001/logout', {withCredentials: true})
     // .then((response) => setUser(undefined),
     // (err) => console.error(err.message));    
@@ -120,11 +120,8 @@ const App = () => {
   useEffect(() => {
     // makeRequest(`${searchInput}`)
     getProcedures()
-    // getUser()
+    getUser()
   },[])
-
-  useEffect(() => {
-  },[getUser])
 
 
   const handleSearch = (e: any) => {
@@ -137,7 +134,7 @@ const App = () => {
       <Router>
         <div className="header">
           <div className="search-form-warp">
-           <Link to="/"><div className="home-button">SUR<i className="fas fa-plus"></i>GICAL</div></Link>
+          <Link to="/"><div className="home-button">SUR<i className="fas fa-plus"></i>GICAL</div></Link>
             <form onSubmit={handleSearch} className="seach-form">
               <input 
                 type="input" onChange={(e: any) => setSearchInput(e.target.value)} 
@@ -197,7 +194,7 @@ const App = () => {
             <Home />
           }/>
           <Route path="/signup" element={<Signup createUser={createUser}/>}/>
-          <Route path="/login" element={<Login createToken={createToken} user={user}/>}/>
+          <Route path="/login" element={<Login createToken={createToken}/>}/>
           <Route path="/contribute" element={<ProcedureForm 
             user={user}
             handleCreate={handleCreate}

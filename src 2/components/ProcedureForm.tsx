@@ -1,7 +1,6 @@
 import React,{ChangeEvent, useState} from "react";
 import '../sass/procedure-form.scss'
 import '../helpers/user'
-import Login from '../pages/Login'
 
 //procedure name
 //Price
@@ -11,8 +10,17 @@ import Login from '../pages/Login'
 //healing time
 const ProcedureForm = (props: any) => {
     //set state of form
+    let contributorId;
+    if (!props.user.id) {
+        contributorId = ''
+    } else {
+        contributorId = props.user.id
+    }
 
-    const defaultForm = {name: '', price: '', hospital_name: '',hospital_city: '',hospital_state: '',hospital_rating: '',heal_time: '', contributor_id: ''}
+
+
+    console.log(props.user);
+    const defaultForm = {name: '', price: '', hospital_name: '',hospital_city: '',hospital_state: '',hospital_rating: '',heal_time: '', contributor_id: contributorId}
     let [procedure, setProcedure] = useState(defaultForm)
 
     //handle change
@@ -27,8 +35,10 @@ const ProcedureForm = (props: any) => {
         props.handleCreate(procedure)        
     }
 
-    if(!props.user) return <Login/>
-    console.log(props.user.id);
+    if(!props.user) return <div>loading...</div>
+    // console.log(props.user);
+    console.log(contributorId);
+    
     
     return (
         <div className="procedure-form">
@@ -104,12 +114,12 @@ const ProcedureForm = (props: any) => {
                 </div>
                 <br/>
                 <div className="input-wrap">
-                <label htmlFor="contributor_id">Contributor ID </label><br/>
+                <label htmlFor="contributor id">Contributor ID </label><br/>
                 <input
-                    type="text"
+                    type="number"
                     name="contributor_id"
                     onChange={handleChange}
-                    value={props.user.id}
+                    value={procedure.contributor_id}
                     className="input"
                     readOnly={true}
                     
@@ -117,10 +127,10 @@ const ProcedureForm = (props: any) => {
                 <br/>
                 <input className="send" type="submit" value="SUBMIT"></input>
                 </div>
-    
+            
             </form>
         </div>
-
-    )
+        
+    )    
 }
 export default ProcedureForm
